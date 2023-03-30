@@ -1,0 +1,25 @@
+enum ProductType {
+  preMarket
+  primary
+  resale
+}
+
+type productRate {
+  sellerFee: Float
+  buyerFee: Float
+  productType: ProductType
+}
+
+input productRateInput {
+  sellerFee: Float
+  buyerFee: Float
+  productType: ProductType
+}
+
+type Query {
+  getPropertyRates: [productRate]
+}
+
+type Mutation {
+  createProductRate(input: productRateInput!): Boolean
+}
